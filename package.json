@@ -1,0 +1,16 @@
+{
+  "name": "gido_online_catering_services",
+  "version": "1.0.0",
+  "description": "Catering services offered online",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "catering",
+    "ordering",
+    "online"
+  ],
+  "author": "Gideana E. Akomaning, Akwa Ahenkan Kofi",
+  "license": "ISC"
+}
