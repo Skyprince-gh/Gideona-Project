@@ -41,7 +41,10 @@ app.get('/cakes', function(req, res){
 
     /*POST REQUESTS */
 app.post('/basket', urlencodedParser, function(req, res){
-   basket(req.body); 
+   
+   console.log('post request recieved', req.body);
+   res.send(req.body);
+    //basket(req.body); 
 });
 
 }
