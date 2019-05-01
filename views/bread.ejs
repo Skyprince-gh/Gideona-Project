@@ -1,0 +1,39 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <% include partials/importHeader.ejs %>
+    <title>Gido Pastry House | Breads</title>
+</head>
+
+<body>
+    <div class="page">
+        <div class="bread-header">
+            <% include partials/nav.ejs %>
+            <div class="container">
+                <div class="landing center black-text">
+                    <h1>Breads.</h1>
+                    <p>Bread is a staple food prepared from a dough of flour and water, usually by baking. Throughout
+                        recorded history it has been a prominent food in large parts of the world and is one of the
+                        oldest man-made foods, having been of significant importance since the dawn of agriculture.
+                    </p>
+                    <a href="/order" class="btn btn-large waves waves-effect flat purple">Order</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">           
+               <% include partials/bread-card.ejs %>
+               <% include partials/bread-card.ejs %>
+               <% include partials/bread-card.ejs %>
+               <% include partials/bread-card.ejs %>
+               <% include partials/bread-card.ejs %>            
+        </div>
+    </div>
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/materialize.min.js"></script>
+</body>

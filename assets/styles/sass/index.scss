@@ -1,0 +1,121 @@
+/* Custom stylesheet for index page */
+/* author - Gideona Emefa */
+/* Case Study - Gido Catering Services */
+/* version - 1.0 */
+
+body{
+    .materialize{
+        @import url("https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css");
+    }
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 
+    Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+    sans-serif;
+
+    .header {
+        background: url("../img/cake_img-4.jpeg") no-repeat center;
+        height: 700px;
+    }
+    
+    .croissant-header {
+        background: url("../img/croissant_img_2.jpeg") no-repeat center;
+        height: 700px;
+    
+    }
+    .pizza-header {
+        background: url("../img/pizza_img_3.jpeg") no-repeat center;
+        height: 700px;
+    }
+    .bread-header {
+        background: url("../img/bread_img_10.jpeg") no-repeat center;
+        height: 700px;
+    }
+    .cake-header {
+        background: url("../img/cake_img-5.jpeg") no-repeat center;
+        height: 700px;
+    }
+    .order-header {
+        background: url("../img/pizza-box-chalkboard.jpg") no-repeat center;
+        height: 400px;
+    }
+    .menu-header {
+        background: url("../img/pizza_img_5.jpeg") no-repeat center;
+        height: 700px;
+    }
+    
+    /* styling the nav logo */
+    .logo {
+        font-family: Corbel, Arial, Helvetica, sans-serif;
+    }
+    
+    .landing {
+        margin-top: 100px;
+    }
+    
+    
+    /* styling the form */
+    .form-wrapper{
+        
+        form{
+            box-sizing: border-box;
+            height: 400px;
+            margin-top: 200px;
+            padding: 20px !important;
+            //padding-top:  !important;
+            border-radius: 20px;
+
+            img{
+                width: 100px;
+                height: 100px;
+                border-radius: 50px;
+                position: relative;
+                margin: 0 auto;
+                bottom: 70px;
+                left: 40%;
+            }
+        }
+    }
+
+     /* STYLING ADMIN */
+ .side-navigation{
+    padding: 0 !important;
+    margin: 0;
+    height: 100vh !important;
+
+    ul{
+        li{
+            list-style-type: none;
+            //padding: 20px;
+            //border-bottom: solid teal 1.5px;
+            font-size: 24px;
+            margin: 0 10px;
+            
+            .btn-large{
+                width: 95%;
+            }
+        }
+    }
+    
+}
+
+.main-area{
+    padding: 0 !important;
+    
+}
+     
+
+
+}
+
+body.row{
+    margin-bottom: 0px;
+}
+
+.cakes {
+    .card-image{
+    height: 400px; /* Your height here */
+    overflow: hidden;
+    }
+}
+ 
+
+

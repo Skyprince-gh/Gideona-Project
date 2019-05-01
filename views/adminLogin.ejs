@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <% include partials/importHeader.ejs %>
+    <title>Login</title>
+</head>
+<body>
+    <div class="page">
+        <div class="login-header">
+            <% include partials/nav.ejs %>
+        </div>
+        <div class="container">
+
+            <div class="form-wrapper row">
+
+                <form class="z-depth-2 purple col s9 m4 push-l3 l6" method="POST" action="/verify">
+                    <div>
+                        <img src="images/userpic1.jpg" alt="">
+                    </div>
+                    <label for="username">Username</label>
+                    <input name="username" type="text" required>
+                    <label for="password">Password</label>
+                    <input name="password" type="password" required>
+
+                    <button class="btn waves-effect waves-dark" type="submit">Login</button>
+                </form>
+            </div>
+        </div>
+</body>
+</html>

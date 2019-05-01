@@ -1,0 +1,71 @@
+/* Custom stylesheet for index page */
+/* author - Gideona Emefa */
+/* Case Study - Gido Catering Services */
+/* version - 1.0 */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css");
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',  Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  /* styling the nav logo */
+  /* styling the form */
+  /* STYLING ADMIN */ }
+  body .materialize { }
+  body .header {
+    background: url("../img/cake_img-4.jpeg") no-repeat center;
+    height: 700px; }
+  body .croissant-header {
+    background: url("../img/croissant_img_2.jpeg") no-repeat center;
+    height: 700px; }
+  body .pizza-header {
+    background: url("../img/pizza_img_3.jpeg") no-repeat center;
+    height: 700px; }
+  body .bread-header {
+    background: url("../img/bread_img_10.jpeg") no-repeat center;
+    height: 700px; }
+  body .cake-header {
+    background: url("../img/cake_img-5.jpeg") no-repeat center;
+    height: 700px; }
+  body .order-header {
+    background: url("../img/pizza-box-chalkboard.jpg") no-repeat center;
+    height: 400px; }
+  body .menu-header {
+    background: url("../img/pizza_img_5.jpeg") no-repeat center;
+    height: 700px; }
+  body .logo {
+    font-family: Corbel, Arial, Helvetica, sans-serif; }
+  body .landing {
+    margin-top: 100px; }
+  body .form-wrapper form {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 400px;
+    margin-top: 200px;
+    padding: 20px !important;
+    border-radius: 20px; }
+    body .form-wrapper form img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50px;
+      position: relative;
+      margin: 0 auto;
+      bottom: 70px;
+      left: 40%; }
+  body .side-navigation {
+    padding: 0 !important;
+    margin: 0;
+    height: 100vh !important; }
+    body .side-navigation ul li {
+      list-style-type: none;
+      font-size: 24px;
+      margin: 0 10px; }
+      body .side-navigation ul li .btn-large {
+        width: 95%; }
+  body .main-area {
+    padding: 0 !important; }
+
+body.row {
+  margin-bottom: 0px; }
+
+.cakes .card-image {
+  height: 400px;
+  /* Your height here */
+  overflow: hidden; }

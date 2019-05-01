@@ -1,0 +1,85 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <% include partials/importHeader.ejs %>
+    <title>Gido Pastry House | Order</title>
+</head>
+
+<body>
+    <div class="page">
+        <div class="order-header">
+            <% include partials/nav.ejs %>
+            <div class="container">
+                <div class="landing black-text">
+                    <h1>Special Order.</h1>
+                    <p>Make a special order today.</p>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <div class="container">
+            <form method="POST" class="col s12">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input placeholder="Eg: Gideona" name="firstname" id="first_name" type="text" required class="validate">
+                        <label for="first_name">First Name</label>
+                    </div>
+
+                    <div class="input-field col s6">
+                        <input placeholder="Eg: Emefa" name="lastname" id="last_name" type="text" required class="validate">
+                        <label for="last_name">Last Name</label>
+                    </div>
+
+                    <div class="input-field col s6">
+                        <input placeholder="Eg: 0290 000 000" name="mobile" id="mobile" type="text" required class="validate">
+                        <label for="disabled">Mobile Number</label>
+                    </div>
+
+                    <div class="input-field col s6">
+                        <input id="email" name="email" type="email" required class="validate">
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="address" name="address" type="text" required class="validate">
+                        <label for="address">Delivery Point</label>
+                    </div>
+
+                    <div class="input-field col s6">
+                        <select name="payment">
+                            <option value="" disabled selected>Choose Payment Method</option>
+                            <!-- <option value="1">Tigo Cash</option>
+                            <option value="2"> MTN Mobile Money</option> -->
+                            <option value="cash on delivery">Cash on Delivery</option>
+                        </select>
+                        <label>Payment Preference</label>
+                    </div>
+
+
+
+                </div>
+                <button type="submit" class="btn btn-large white-text waves-effect waves-lighten purple"> 
+                    Make Order </button>
+
+            </form>
+        </div>
+
+
+
+        <script src="scripts/jquery.min.js"></script>
+        <script src="scripts/materialize.min.js"></script>
+
+        <script>
+            $(document).ready(function () {
+                $('select').formSelect();
+            });
+        </script>
+</body>
+
+</html>
