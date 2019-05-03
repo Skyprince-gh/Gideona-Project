@@ -9,7 +9,7 @@
     <title>Gido Pastry House | Breads</title>
 </head>
 
-<body>
+<body class="bread">
     <div class="page">
         <div class="bread-header">
             <% include partials/nav.ejs %>
@@ -26,14 +26,11 @@
 
         </div>
 
-        <div class="row">           
-               <% include partials/bread-card.ejs %>
-               <% include partials/bread-card.ejs %>
-               <% include partials/bread-card.ejs %>
-               <% include partials/bread-card.ejs %>
-               <% include partials/bread-card.ejs %>            
+        <div class="row">
+            <% cardData.forEach(function(data){ %>
+            <%- include('partials/bread-card', {cdata: data}); %>
+            <% }); %>
         </div>
     </div>
-    <script src="scripts/jquery.min.js"></script>
-    <script src="scripts/materialize.min.js"></script>
+
 </body>

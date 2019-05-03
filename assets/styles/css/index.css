@@ -65,7 +65,7 @@ body {
 body.row {
   margin-bottom: 0px; }
 
-.cakes .card-image {
-  height: 400px;
+.cakes .card-image, .bread .card-image, .croissants .card-image {
+  height: 300px;
   /* Your height here */
   overflow: hidden; }

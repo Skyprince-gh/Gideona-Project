@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,28 +16,24 @@
             <div class="container">
                 <div class="landing center black-text">
                     <h1>Pizza.</h1>
-                    <p>Pizza is a savory dish of Italian origin, consisting of a usually round, flattened base of leavened wheat-based dough topped with tomatoes, cheese, and various other ingredients baked at a high temperature, traditionally in a wood-fired oven.
+                    <p>Pizza is a savory dish of Italian origin, consisting of a usually round, flattened base of
+                        leavened wheat-based dough topped with tomatoes, cheese, and various other ingredients baked at
+                        a high temperature, traditionally in a wood-fired oven.
                     </p>
                     <a href="order.html" class="btn btn-large waves waves-effect flat purple">Order</a>
                 </div>
             </div>
 
         </div>
-        
-                    <div class="row">
-                        <%include partials/pizza-card.ejs %>
-                        <%include partials/pizza-card.ejs %>
-                        <%include partials/pizza-card.ejs %>
-                        <%include partials/pizza-card.ejs %>
-                        <%include partials/pizza-card.ejs %>
-                        <%include partials/pizza-card.ejs %>
-                        
-                    </div>
- 
 
-                      </div>
+        <div class="row">
+            <% cardData.forEach(function(data){ %>
+                <%- include('partials/pizza-card', {cdata: data}); %>
+                <% }); %>
+        </div>
+    </div>
 
 
-                      <script src="./scripts/jquery.min.js"></script>
-                      <script src="./scripts/materialize.min.js"></script>
-                      </body>
+    <script src="./scripts/jquery.min.js"></script>
+    <script src="./scripts/materialize.min.js"></script>
+</body>

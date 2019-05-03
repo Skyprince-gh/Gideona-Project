@@ -22,32 +22,43 @@ window.onload = function () {
       console.log(e.target);
       if (e.target.classList.contains('btn')) {
          e.preventDefault()
-         console.log('item picked')
+
+         //Get Item Name
          //clone the node to manipulate into getting the inner text
          let clonedSpan = e.target.parentElement.previousElementSibling.cloneNode(true);
          let i = clonedSpan.querySelector('i');
          clonedSpan.removeChild(i);
          let cardName = clonedSpan.innerText.trim();
-         console.log(cardName);
 
+         //Get Item ID
          let cardID = e.target.parentElement.parentElement.parentElement.id;
+         //Get Item Price
+         let price = e.target.innerText.trim();
+         //Get Item info
+         let info = e.target.parentElement.parentElement.nextElementSibling.querySelector('p').innerText.trim();
+         //Get image URL
+         let imgURL = e.target.parentElement.parentElement.previousElementSibling.
+            querySelector('img').getAttribute('src');
 
          //fire modal to ask if user wants to add item to basket
 
          //post the info to the server
-          $.ajax({
-             type: 'POST',
-             url: '/basket',
-             data: { // data to be sent through post
-                cardName: cardName,
-                cardID: cardID,
-             },
-             success: function (data){
+         $.ajax({
+            type: 'POST',
+            url: '/basket',
+            data: { // data to be sent through post
+               name: cardName,
+               id: cardID,
+               price: price,
+               info: info,
+               imgURL: imgURL
+            },
+            success: function (data) {
                //do something with the data via front end
                console.log('this is the data you posted: ', data);
                //location.reload();
-             }
-          })
+            }
+         })
 
       }
       console.log('the element is', e.target);

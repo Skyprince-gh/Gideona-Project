@@ -1,16 +1,10 @@
 const basket = function(item){
-    let newItem = {
-        name: item.name,
-        price: item.price,
-        info: item.info,
-        image: item.imgURL
-    }
-    
-    let items = [];
+  this.items = []
 
-    items.push(newItem)
+  items.push(item);
 
-    return items;
+  return items;
+  
 }
 
 
