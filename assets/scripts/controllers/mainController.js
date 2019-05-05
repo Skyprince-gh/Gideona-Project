@@ -1,5 +1,6 @@
 const firebase = require('../firebase.js');
 const bodyParser = require('body-parser');
+let Basket = [];
 
 
 
@@ -10,7 +11,7 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 const controller = function (app) {
 
     /*GET REQUESTS*/
-    let getPage = function(page){
+    let getPage = function(page, basket){
 
         app.get('/' + page , function (req, res) {
             firebase.firestore.collection(page).get().then(snapshot => {
@@ -21,7 +22,8 @@ const controller = function (app) {
                     let id = doc.id;
                     var data = {
                         id: id,
-                        document: document
+                        document: document,
+                        basket: basket
                     }
                     cardData.push(data);
                 });
@@ -35,7 +37,7 @@ const controller = function (app) {
 
 
     app.get('/', function (req, res) {
-        res.render('index');
+        res.render('index', {basket: Basket});
         console.log('index page rendered');
     });
     app.get('/index', function (req, res) {
@@ -44,17 +46,16 @@ const controller = function (app) {
     });
 
     //RUN GET PAGE FUNCTION    
-    getPage('cakes'); //Get the cakes page
+    getPage('cakes', Basket); //Get the cakes page
 
-    getPage('bread'); //Get the bread page
+    getPage('bread', Basket); //Get the bread page
 
-    getPage('croissants'); //Get the Croissants page  
+    getPage('croissants', Basket); //Get the Croissants page  
 
-    getPage('pizza'); //Get the Pizza Page
+    getPage('pizza', Basket); //Get the Pizza Page
 
 
     /*POST REQUESTS */
-    let Basket = [];
 
     app.post('/basket', urlencodedParser, function (req, res) {
 

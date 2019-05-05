@@ -13,10 +13,13 @@
     <div class="page">
         <div class="bread-header">
             <% include partials/nav.ejs %>
-            <div class="container">
+            <div class="parallax-container">
+                    <div class="parallax">
+                            <img src="images/bread/bread_img_9.jpeg" alt="bread-image-parallax">
+                        </div>
                 <div class="landing center black-text">
                     <h1>Breads.</h1>
-                    <p>Bread is a staple food prepared from a dough of flour and water, usually by baking. Throughout
+                    <p class="container">Bread is a staple food prepared from a dough of flour and water, usually by baking. Throughout
                         recorded history it has been a prominent food in large parts of the world and is one of the
                         oldest man-made foods, having been of significant importance since the dawn of agriculture.
                     </p>
@@ -32,5 +35,5 @@
             <% }); %>
         </div>
     </div>
-
+    <%include partials/items-menu.ejs %>
 </body>

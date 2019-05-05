@@ -13,10 +13,13 @@
     <div class="page">
         <div class="cake-header">
             <% include partials/nav.ejs %>
-            <div class="container">
-                <div class="landing black-text">
-                    <h1 class="black-text">Cakes.</h1>
-                    <p>Cake is a form of sweet dessert that is typically baked. In their oldest forms, cakes were
+            <div class="parallax-container">
+                <div class="parallax">
+                    <img src="images/cakes/download.jpg" alt="cakes-image-parallax">
+                </div>
+                <div class="landing center white-text">
+                    <h1 >Cakes.</h1>
+                    <p class="container">Cake is a form of sweet dessert that is typically baked. In their oldest forms, cakes were
                         modifications of breads, but cakes now cover a wide range of preparations that can be simple or
                         elaborate, and that share features with other desserts such as pastries, meringues, custards,
                         and pies.
@@ -29,9 +32,9 @@
 
         <div class="row">
             <% cardData.forEach(function(data){ %>
-                <%- include('partials/cakes-card', {cdata: data}); %>
-            <% }); %>         
+            <%- include('partials/cakes-card', {cdata: data}); %>
+            <% }); %>
         </div>
     </div>
-    
+    <%include partials/items-menu.ejs %>
 </body>

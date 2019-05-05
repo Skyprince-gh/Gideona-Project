@@ -61,6 +61,21 @@ window.onload = function () {
          })
 
       }
-      console.log('the element is', e.target);
+      location.reload();
    }
+
+   //NAVBAR
+   let nav = document.querySelector('nav');
+   console.log(nav);
+   nav.addEventListener('click', function(e){      
+      if(e.target.innerText.trim() === "shopping_cart"){
+         e.preventDefault();
+         $('.modal').modal();
+      }
+   })
+
+
+   //MATERIALIZE FEATURES  
+   $('.parallax').parallax();
+    
 }

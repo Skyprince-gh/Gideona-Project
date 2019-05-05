@@ -4,10 +4,16 @@
 /* version - 1.0 */
 @import url("https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css");
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',  Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 
+ Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+ sans-serif;
   /* styling the nav logo */
   /* styling the form */
   /* STYLING ADMIN */ }
+  body nav .badge {
+    position: relative;
+    top: 20px;
+    right: 30px; }
   body .materialize { }
   body .header {
     background: url("../img/cake_img-4.jpeg") no-repeat center;
@@ -33,7 +39,9 @@ body {
   body .logo {
     font-family: Corbel, Arial, Helvetica, sans-serif; }
   body .landing {
-    margin-top: 100px; }
+    margin-top: 100px;
+    font-size: 1.2em;
+    font-weight: bold; }
   body .form-wrapper form {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -65,7 +73,7 @@ body {
 body.row {
   margin-bottom: 0px; }
 
-.cakes .card-image, .bread .card-image, .croissants .card-image {
+.cakes .card-image, .bread .card-image, .croissants .card-image, .pizza .card-image {
   height: 300px;
   /* Your height here */
   overflow: hidden; }
