@@ -18,7 +18,7 @@ window.onload = function () {
 
 
    function handleCardButtonClick(e) {
-      e.stopPropagation();
+      //e.stopPropagation();
       //e.preventDefault();
       console.log(e.target);
       if (e.target.classList.contains('btn')) {
