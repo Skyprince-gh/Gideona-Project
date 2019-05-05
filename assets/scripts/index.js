@@ -19,6 +19,7 @@ window.onload = function () {
 
    function handleCardButtonClick(e) {
       e.stopPropagation();
+      //e.preventDefault();
       console.log(e.target);
       if (e.target.classList.contains('btn')) {
          e.preventDefault()
@@ -61,8 +62,9 @@ window.onload = function () {
          })
 
       }
-      location.reload();
+      //location.reload();
    }
+  // else if(e.target)
 
    //NAVBAR
    let nav = document.querySelector('nav');
@@ -77,5 +79,11 @@ window.onload = function () {
 
    //MATERIALIZE FEATURES  
    $('.parallax').parallax();
+
+
+
+   //ITEMS-LIST
+   // itemList = document.getElementById('items-menu');
+   // itemList.addEventListener('click')
     
 }

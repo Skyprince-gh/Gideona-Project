@@ -1,9 +1,23 @@
-  <!-- Modal Structure -->
- <div id="items-menu" class="modal bottom-sheet">
-   <div class="modal-content">
-     
-   </div>
-   <div class="modal-footer">
-     <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-   </div>
- </div>
+<!-- Modal Structure -->
+<div id="items-menu" class="modal bottom-sheet">
+  <div class="modal-content">
+    <ul class="basket-list">
+     <% basket.forEach(function(item){ %>
+       <li>
+           <img src=<%=item.imgURL %> alt="">
+           <div>
+             <h3 class="title"> <%=item.name%> </h3>
+             <p class="info"><%=item.info%></p>
+             <p class="price">
+                <%=item.price%>
+             </p>
+           </div>
+         </li>
+     <% }) %> 
+        
+    </ul>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+  </div>
+</div>

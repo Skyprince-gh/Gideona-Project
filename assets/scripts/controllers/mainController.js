@@ -30,18 +30,19 @@ const controller = function (app) {
     
                 res.render(page, { cardData: cardData });
             });
-    
+            console.log(Basket);
             console.log(page + ' page rendered');
         });
     }
 
 
     app.get('/', function (req, res) {
+        console.log(Basket);
         res.render('index', {basket: Basket});
         console.log('index page rendered');
     });
     app.get('/index', function (req, res) {
-        res.render('index');
+        res.render('index',{basket: Basket});
         console.log('index page rendered');
     });
 
@@ -63,7 +64,7 @@ const controller = function (app) {
         res.send(req.body);
         //return items in basket to the global variable   
         Basket.push(req.body);
-        console.log('basket items: ', Basket);
+       
     });
 
 }
