@@ -45,6 +45,11 @@ const controller = function (app) {
         res.render('index',{basket: Basket});
         console.log('index page rendered');
     });
+    app.get('/order', function (req, res) {
+        res.render('order',{basket: Basket});
+        console.log('order page rendered');
+    });
+    
 
     //RUN GET PAGE FUNCTION    
     getPage('cakes', Basket); //Get the cakes page

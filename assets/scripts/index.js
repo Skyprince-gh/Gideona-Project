@@ -34,7 +34,8 @@ window.onload = function () {
          //Get Item ID
          let cardID = e.target.parentElement.parentElement.parentElement.id;
          //Get Item Price
-         let price = e.target.innerText.trim();
+         let price = e.target.nextElementSibling.innerText;
+         console.log('price: ',price);
          //Get Item info
          let info = e.target.parentElement.parentElement.nextElementSibling.querySelector('p').innerText.trim();
          //Get image URL
@@ -42,6 +43,8 @@ window.onload = function () {
             querySelector('img').getAttribute('src');
 
          //fire modal to ask if user wants to add item to basket
+
+
 
          //post the info to the server
          $.ajax({
@@ -57,12 +60,12 @@ window.onload = function () {
             success: function (data) {
                //do something with the data via front end
                console.log('this is the data you posted: ', data);
-               //location.reload();
+               location.reload();
             }
          })
 
       }
-      //location.reload();
+      location.reload();
    }
   // else if(e.target)
 
@@ -82,8 +85,6 @@ window.onload = function () {
 
 
 
-   //ITEMS-LIST
-   // itemList = document.getElementById('items-menu');
-   // itemList.addEventListener('click')
+ 
     
 }
