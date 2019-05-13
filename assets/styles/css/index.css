@@ -30,7 +30,7 @@ body {
     height: 700px; }
   body .order-header {
     background: url("../img/pizza-box-chalkboard.jpg") no-repeat center;
-    height: 400px; }
+    height: 200px; }
   body .menu-header {
     background: url("../img/pizza_img_5.jpeg") no-repeat center;
     height: 700px; }
@@ -40,6 +40,10 @@ body {
     margin-top: 100px;
     font-size: 1.2em;
     font-weight: bold; }
+  body .order-page #basket-items {
+    margin-top: 120px !important;
+    overflow: scroll;
+    max-height: 600px; }
   body .form-wrapper form {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -55,6 +59,11 @@ body {
       margin: 0 auto;
       bottom: 70px;
       left: 40%; }
+  body .admin {
+    -webkit-box-sizing: border-box !important;
+    box-sizing: border-box !important; }
+    body .admin div.row {
+      margin-bottom: 0px !important; }
   body .side-navigation {
     padding: 0 !important;
     margin: 0;
