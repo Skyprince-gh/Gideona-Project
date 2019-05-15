@@ -92,14 +92,15 @@ const controller = function (app) {
         //return items in basket to the global variable   
         Basket.push(req.body);
     });
-
-
+    
+    
     app.post('/order', urlencodedParser, (req, res) => {
         console.clear();
-
+        
         firebase.firestore.collection('orders').add({
             basket: JSON.stringify(Basket),
-            customerInfo: JSON.stringify(req.body)
+            customerInfo: JSON.stringify(req.body),
+            submissionTime: new Date(),
         }).then(snapshot => {
             console.clear();
             res.render('index', {basket: []});            
@@ -108,13 +109,18 @@ const controller = function (app) {
         Basket = [];
         
     });
-    app.post('/verify', urlencodedParser, (req,res)=>{
-        firebase.auth.signInWithEmailAndPassword(req.body.username,req.body.password).then(cred=>{
-            res.redirect('admin-panel');
+    
+    app.post('/get-orders', urlencodedParser, function (req, res) {
+        firebase.firestore.collection('orders').get().then(snapshot=>{
+           let data=[];
+            snapshot.docs.forEach(doc=>{
+                data.push(doc.data());
+            })
+            res.send(data); 
 
         })
-    })
-
+    });
+     
 
 
 }

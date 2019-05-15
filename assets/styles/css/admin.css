@@ -1,0 +1,5 @@
+body.admin .main-area div.orders {
+  width: 80%;
+  margin: 0 auto; }
+  body.admin .main-area div.orders .collapsible-header * {
+    margin: 0 20px; }

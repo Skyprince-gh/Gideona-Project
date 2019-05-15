@@ -28,7 +28,20 @@ let loadDashboard = function(){
 }
 
 let loadOrders = function(){
-    console.log('orders Loaded')
+ $.ajax({
+     type:"POST",
+     url: 'get-orders',
+     data: {},
+     success: function(data){
+        console.log('orders:' , data);
+        displayOrders(data);
+
+        
+     },
+     error: function(err){
+         console.log('error', err)
+     }
+ })
 }
 
 let loadSettings = function(){
@@ -36,11 +49,47 @@ let loadSettings = function(){
 }
 
 
+let displayOrders = function(data){
+  let orderList = document.querySelector('ul.collapsible');
+  let customerInfo = JSON.parse(data[0].customerInfo);
+  let basket = JSON.parse(data[0].basket);
+  console.log('info: ',customerInfo);
+  console.log('basket: ', basket)
+  
+ orderList.innerHTML = '';
+ data.forEach(function(user){
+    let customerInfo = JSON.parse(user.customerInfo);
+    let basket = JSON.parse(user.basket);
+    let items = '';
 
+    basket.forEach(item=>{
+        items += `<li class="collection-item" >${item.name}</li>`;
+    })
 
+    orderList.innerHTML += ` <li>
+    <div class="collapsible-header">
+        <strong>
+            <span>${customerInfo.firstname} ${customerInfo.lastname}</span>
+            <span>0${customerInfo.mobile}</span>
+            <span>${customerInfo.address}</span>    
+            <span>${customerInfo.payment}</span>    
+        </strong>
+    </div>
+   <div class="collapsible-body">
+   <ul class="collection">
+        ${items}  
+    </ul>
+         
+    </div>
+  </li>`
 
+ });
+ 
+ 
+}
 
-
-
+//MATERIALIZE FEATURES  
+$('.collapsible').collapsible();
 
 }
+

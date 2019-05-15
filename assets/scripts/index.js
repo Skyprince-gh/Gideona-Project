@@ -82,7 +82,7 @@ window.onload = function () {
 
    //MATERIALIZE FEATURES  
    $('.parallax').parallax();
-
+   console.log('parallax activated');
 
 
  
