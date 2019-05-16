@@ -18,11 +18,12 @@ window.onload = function () {
 
 
    function handleCardButtonClick(e) {
-      //e.stopPropagation();
-      //e.preventDefault();
+      
+      e.preventDefault();
       console.log(e.target);
       if (e.target.classList.contains('btn')) {
          e.preventDefault()
+         e.stopPropagation();
 
          //Get Item Name
          //clone the node to manipulate into getting the inner text
@@ -65,7 +66,7 @@ window.onload = function () {
          })
 
       }
-      location.reload();
+      //location.reload();
    }
   // else if(e.target)
 
@@ -82,8 +83,7 @@ window.onload = function () {
 
    //MATERIALIZE FEATURES  
    $('.parallax').parallax();
-   console.log('parallax activated');
-
+   
 
  
     
