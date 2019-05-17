@@ -93,6 +93,10 @@ const controller = function (app) {
             
         })
     })
+    app.get('/total', urlencodedParser,(req,res)=>{
+            let total = getBasketTotal(Basket);
+            res.send({total: total});
+    });
     
     
     //RUN GET PAGE FUNCTION    
@@ -145,10 +149,6 @@ const controller = function (app) {
     });
     
     
-    app.post('/total', urlencodedParser,(req,res)=>{
-            let total = getBasketTotal(Basket);
-           console.log('total is: ',total)
-    });
     
     
 }

@@ -20,7 +20,7 @@ window.onload = function () {
 
    function handleCardButtonClick(e) {
       
-      e.preventDefault();
+      //e.preventDefault();
       //e.stopPropagation();
       console.log(e.target);
       if (e.target.classList.contains('btn')) {
@@ -74,12 +74,12 @@ window.onload = function () {
 
   let getTotal = function(){
      $.ajax({
-        type: 'POST',
+        type: 'GET',
         url: 'total',
         data: {},
         success: function(data){
             let p = document.querySelector('.items-total');
-            p.innerHTML = `<strong>Total: ${data.total} </strong>`;
+            p.innerHTML = `<strong>Total Amount: GHS ${data.total}.00 </strong>`;
         }
      })
   }
