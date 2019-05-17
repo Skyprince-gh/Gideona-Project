@@ -11,6 +11,29 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 const controller = function (app) {
     let Basket = [];
 
+    let getBasketTotal = function(basket){
+        prices = []
+        basket.forEach(item=>{
+            prices.push(item.price)
+        });
+        console.log('prices are: ', prices);
+
+        let digits = []
+        prices.forEach(price=>{
+            let priceDigit = price.replace(/^\D+/g, '');
+            digits.push(priceDigit);
+        });
+
+        let sum = 0;
+        digits.forEach(digit=>{
+            sum += parseFloat(digit);
+            
+        })
+
+        return sum;
+
+    }
+
     /*GET REQUESTS*/
     let getPage = function (page, basket) {
 
@@ -70,22 +93,22 @@ const controller = function (app) {
             
         })
     })
-
-
+    
+    
     //RUN GET PAGE FUNCTION    
     getPage('cakes', Basket); //Get the cakes page
-
+    
     getPage('bread', Basket); //Get the bread page
-
+    
     getPage('croissants', Basket); //Get the Croissants page  
-
+    
     getPage('pizza', Basket); //Get the Pizza Page
     
     
-
-
+    
+    
     /*POST REQUESTS */
-
+    
     app.post('/basket', urlencodedParser, function (req, res) {
         console.clear();
         res.send(req.body);
@@ -112,17 +135,22 @@ const controller = function (app) {
     
     app.post('/get-orders', urlencodedParser, function (req, res) {
         firebase.firestore.collection('orders').get().then(snapshot=>{
-           let data=[];
+            let data=[];
             snapshot.docs.forEach(doc=>{
                 data.push(doc.data());
             })
             res.send(data); 
-
+            
         })
     });
-     
-
-
+    
+    
+    app.post('/total', urlencodedParser,(req,res)=>{
+            let total = getBasketTotal(Basket);
+           console.log('total is: ',total)
+    });
+    
+    
 }
 
 

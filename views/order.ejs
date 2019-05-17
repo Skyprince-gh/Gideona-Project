@@ -9,17 +9,17 @@
     <title>Gido Pastry House | Order</title>
 </head>
 
-<body>
+<body class="order">
     <% include partials/index-nav.ejs %>
     <div class="order-page container">
         <div class=row>
                 <%- include('partials/order-page-basket-items', {basket: basket}); %>
-            
+                
 
             <div class="col s8">
 
-                <div class="order-header">
-                    <div class="landing black-text">
+                <div class=" order-header">
+                    <div class="landing black-text">                        
                         <h1>Order Items</h1>
                         <p>Fill In details and order items in basket to be deliverd to your door step</p>
                     </div>
@@ -70,6 +70,8 @@
                 </form>
             </div>
         </div>
+        
+        <p class="items-total"></p>
     </div>
 
 

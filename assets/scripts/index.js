@@ -1,6 +1,7 @@
 window.onload = function () {
    console.log("window loaded")
-
+   let body =  document.querySelector('body');
+   
    //code for backend admin section
    let addBtn = document.querySelector('.add');
    console.log(addBtn);
@@ -20,6 +21,7 @@ window.onload = function () {
    function handleCardButtonClick(e) {
       
       e.preventDefault();
+      //e.stopPropagation();
       console.log(e.target);
       if (e.target.classList.contains('btn')) {
          e.preventDefault()
@@ -69,6 +71,23 @@ window.onload = function () {
       //location.reload();
    }
   // else if(e.target)
+
+  let getTotal = function(){
+     $.ajax({
+        type: 'POST',
+        url: 'total',
+        data: {},
+        success: function(data){
+            let p = document.querySelector('.items-total');
+            p.innerHTML = `<strong>Total: ${data.total} </strong>`;
+        }
+     })
+  }
+
+
+  if (body.classList.contains('order')){
+   getTotal();
+}
 
    //NAVBAR
    let nav = document.querySelector('nav');
