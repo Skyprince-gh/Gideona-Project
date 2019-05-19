@@ -81,15 +81,23 @@ const controller = function (app) {
     app.get('/admin', function (req, res) {
         res.render('adminLogin', { basket: Basket });
         console.log('admin login page rendered');
-        
+
     });
     app.get('/admin-panel',urlencodedParser,(req,res)=>{
-        firebase.firestore.collection('orders').get().then(snapshot=>{
-            let docs = [];
-            snapshot.docs.forEach(doc=>{
-                docs.push(doc.data());
-            })
-            res.render('admin-panel', {docs: docs});
+        //check if the user is signed in
+        firebase.auth.onAuthStateChanged(user=>{
+            if(user){
+                firebase.firestore.collection('orders').get().then(snapshot=>{
+                    let docs = [];
+                    snapshot.docs.forEach(doc=>{
+                        docs.push(doc.data());
+                    })
+                    res.render('admin-panel', {docs: docs});                    
+                });
+            }else{
+                console.log('log in to access');
+            }
+            
             
         })
     })
@@ -147,7 +155,11 @@ const controller = function (app) {
             
         })
     });
-    
+    app.post('/verify', urlencodedParser, (req,res)=>{
+        firebase.auth.signInWithEmailAndPassword(req.body.email, req.body.password).then(cred=>{
+            res.render('admin-panel')
+        })
+    })
     
     
     
