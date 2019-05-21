@@ -1,14 +1,17 @@
 body.admin{
-    .main-area{
-        div.orders{
-            width: 80%;
-            margin: 0 auto;
-
-            .collapsible-header{
-                *{
-                    margin: 0 20px;
+    div.row{
+        margin-bottom: 0px;
+        .main-area{
+            div.orders{
+                width: 80%;
+                margin: 0 auto;
+                
+                .collapsible-header{
+                    *{
+                        margin: 0 20px;
+                    }
+                    
                 }
-            
             }
         }
     }

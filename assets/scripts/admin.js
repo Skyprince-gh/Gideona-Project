@@ -29,7 +29,7 @@ let loadDashboard = function(){
 
 let loadOrders = function(){
  $.ajax({
-     type:"POST",
+     type:"GET",
      url: 'get-orders',
      data: {},
      success: function(data){
@@ -61,6 +61,7 @@ let displayOrders = function(data){
     let customerInfo = JSON.parse(user.customerInfo);
     let basket = JSON.parse(user.basket);
     let items = '';
+    let total = user.total
 
     basket.forEach(item=>{
         items += `<li class="collection-item" >${item.name}</li>`;
@@ -77,7 +78,8 @@ let displayOrders = function(data){
     </div>
    <div class="collapsible-body">
    <ul class="collection">
-        ${items}  
+        ${items}
+        <li class="collection-item"><b>Total: GHS ${total}.00 </b></li>  
     </ul>
          
     </div>

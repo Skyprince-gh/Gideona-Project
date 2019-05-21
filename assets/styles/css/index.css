@@ -15,7 +15,9 @@ body {
   body .materialize { }
   body .header {
     background: url("../img/cake_img-4.jpeg") no-repeat center;
-    height: 700px; }
+    height: 500px; }
+    body .header .landing {
+      margin-top: 0px; }
   body .croissant-header {
     background: url("../img/croissant_img_2.jpeg") no-repeat center;
     height: 700px; }

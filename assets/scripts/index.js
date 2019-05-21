@@ -100,6 +100,10 @@ window.onload = function () {
    })
 
 
+   //Order Page : Order List Items
+    
+
+
    //MATERIALIZE FEATURES  
    $('.parallax').parallax();
    

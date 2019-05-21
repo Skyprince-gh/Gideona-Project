@@ -20,7 +20,10 @@ body{
 
     .header {
         background: url("../img/cake_img-4.jpeg") no-repeat center;
-        height: 700px;
+        height: 500px;
+        .landing{
+            margin-top: 0px;
+        }
     }
     
     .croissant-header {
