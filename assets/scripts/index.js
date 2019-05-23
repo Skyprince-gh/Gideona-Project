@@ -2,6 +2,36 @@ window.onload = function () {
    console.log("window loaded")
    let body =  document.querySelector('body');
    
+   if(body.className === 'order'){
+      //Order Page : Order List Items
+   let basketItems = document.getElementById('basket-items');
+   basketItems.addEventListener('click', e=>{
+      e.preventDefault();
+      e.stopPropagation();
+      if (e.target.innerHTML ==="cancel"){
+      let li = e.target.parentElement.parentElement;
+      console.log(basketItems.childNodes);
+      let lis = basketItems.querySelectorAll('li');
+      let index = Array.from(lis).indexOf(li);
+      console.log('index is: ', index);
+
+      basketItems.removeChild(li);
+         $.ajax({
+            type: 'POST', 
+            url: '/remove',
+            data: {index: index},
+            success: function(res){
+               //do something
+               location.reload();
+            },
+            error: function(res){
+               //do something
+            }
+         })
+      } 
+   })
+
+   }
    //code for backend admin section
    let addBtn = document.querySelector('.add');
    console.log(addBtn);
@@ -100,8 +130,7 @@ window.onload = function () {
    })
 
 
-   //Order Page : Order List Items
-    
+   
 
 
    //MATERIALIZE FEATURES  

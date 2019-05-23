@@ -10,7 +10,8 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 let Basket = [];
 
 const controller = function (app) {
-
+console.clear();
+console.log('console cleared');
      
     /*POST REQUESTS */
     
@@ -44,6 +45,27 @@ const controller = function (app) {
         firebase.auth.signInWithEmailAndPassword(req.body.email, req.body.password).then(cred=>{
             res.render('admin-panel')
         })
+    })
+    app.post('/remove', urlencodedParser, (req,res)=>{
+        let index = req.body.index;
+       Basket[index] = {};
+        console.log('edited basket', Basket);
+       let newBasket = [];
+
+       Basket.forEach(item=>{
+           if(Object.keys(item).length === 0 && item.constructor === Object){
+               //do nothing
+           }
+           else{
+               newBasket.push(item);
+           }
+       })
+
+       Basket = newBasket;
+
+       console.log('updated Basket: ', Basket);
+
+       res.send(Basket)
     })
 
 

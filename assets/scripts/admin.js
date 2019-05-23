@@ -45,7 +45,7 @@ let loadOrders = function(){
 }
 
 let loadSettings = function(){
-    console.log('settings Loaded');
+    let mainArea = document.querySelector('.main-area');
 }
 
 
