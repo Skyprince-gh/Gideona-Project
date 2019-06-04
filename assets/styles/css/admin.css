@@ -5,3 +5,7 @@ body.admin div.row {
     margin: 0 auto; }
     body.admin div.row .main-area div.orders .collapsible-header * {
       margin: 0 20px; }
+
+.w {
+  width: 80%;
+  margin: 0 auto; }

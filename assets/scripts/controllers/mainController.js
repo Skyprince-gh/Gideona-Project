@@ -10,11 +10,19 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 let Basket = [];
 
 const controller = function (app) {
-console.clear();
-console.log('console cleared');
-     
+    console.clear();
+    console.log('console cleared');
+
     /*POST REQUESTS */
-    
+
+    app.post('/comment', urlencodedParser, function (req, res) {
+        firebase.firestore.collection('comments').add({
+            review:req.body.review,
+            userName: req.body.userName,
+            email: req.body.email
+        })
+
+    });
     app.post('/basket', urlencodedParser, function (req, res) {
         console.clear();
         console.log('Basket: ', Basket)
@@ -22,8 +30,8 @@ console.log('console cleared');
         //return items in basket to the global variable   
         Basket.push(req.body);
     });
-    
-    
+
+
     app.post('/order', urlencodedParser, (req, res) => {
         console.clear();
         let total = getBasketTotal(Basket);
@@ -35,73 +43,73 @@ console.log('console cleared');
         }).then(snapshot => {
             console.clear();
             Basket = [];
-            res.render('index', {basket: Basket});      
+            res.render('index', { basket: Basket });
 
             // res.send('Order successful')
         });
-        
+
     });
-    app.post('/verify', urlencodedParser, (req,res)=>{
-        firebase.auth.signInWithEmailAndPassword(req.body.email, req.body.password).then(cred=>{
+    app.post('/verify', urlencodedParser, (req, res) => {
+        firebase.auth.signInWithEmailAndPassword(req.body.email, req.body.password).then(cred => {
             res.render('admin-panel')
         })
     })
-    app.post('/remove', urlencodedParser, (req,res)=>{
+    app.post('/remove', urlencodedParser, (req, res) => {
         let index = req.body.index;
-       Basket[index] = {};
+        Basket[index] = {};
         console.log('edited basket', Basket);
-       let newBasket = [];
+        let newBasket = [];
 
-       Basket.forEach(item=>{
-           if(Object.keys(item).length === 0 && item.constructor === Object){
-               //do nothing
-           }
-           else{
-               newBasket.push(item);
-           }
-       })
+        Basket.forEach(item => {
+            if (Object.keys(item).length === 0 && item.constructor === Object) {
+                //do nothing
+            }
+            else {
+                newBasket.push(item);
+            }
+        })
 
-       Basket = newBasket;
+        Basket = newBasket;
 
-       console.log('updated Basket: ', Basket);
+        console.log('updated Basket: ', Basket);
 
-       res.send(Basket)
+        res.send(Basket)
     })
 
 
     /*GET REQUESTS*/
-    
-    let getBasketTotal = function(basket){
+
+    let getBasketTotal = function (basket) {
         prices = []
-        basket.forEach(item=>{
+        basket.forEach(item => {
             prices.push(item.price)
         });
         console.log('prices are: ', prices);
 
         let digits = []
-        prices.forEach(price=>{
+        prices.forEach(price => {
             let priceDigit = price.replace(/^\D+/g, '');
             digits.push(priceDigit);
         });
 
         let sum = 0;
-        digits.forEach(digit=>{
+        digits.forEach(digit => {
             sum += parseFloat(digit);
-            
+
         })
 
         return sum;
 
-    } 
+    }
 
-////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////
 
     let getPage = function (page) {
 
         app.get('/' + page, function (req, res) {
             firebase.firestore.collection(page).get().then(snapshot => {
                 console.clear()
-                console.log('Basket: ', Basket);                
+                console.log('Basket: ', Basket);
                 let cardData = [];
                 snapshot.docs.forEach(function (doc) {
                     let document = doc.data();
@@ -145,66 +153,76 @@ console.log('console cleared');
         console.log('Basket: ', Basket);
         res.render('about', { basket: Basket });
         console.log('about page rendered');
-        
+
     });
     app.get('/admin', function (req, res) {
         console.clear();
         console.log('Basket: ', Basket);
         res.render('adminLogin', { basket: Basket });
         console.log('admin login page rendered');
-        
+
     });
-    app.get('/admin-panel',urlencodedParser,(req,res)=>{
+    app.get('/admin-panel', urlencodedParser, (req, res) => {
         //check if the user is signed in
         console.clear();
-        firebase.auth.onAuthStateChanged(user=>{
-            if(user){
-                firebase.firestore.collection('orders').get().then(snapshot=>{
+        firebase.auth.onAuthStateChanged(user => {
+            if (user) {
+                firebase.firestore.collection('orders').get().then(snapshot => {
                     let docs = [];
-                    snapshot.docs.forEach(doc=>{
+                    snapshot.docs.forEach(doc => {
                         docs.push(doc.data());
                     })
-                    res.render('admin-panel', {docs: docs});                    
+                    res.render('admin-panel', { docs: docs });
                 });
-            }else{
+            } else {
                 console.log('log in to access');
             }
-            
-            
+
+
         })
     })
-    app.get('/total', urlencodedParser,(req,res)=>{
-            let total = getBasketTotal(Basket);
-            res.send({total: total});
+    app.get('/total', urlencodedParser, (req, res) => {
+        let total = getBasketTotal(Basket);
+        res.send({ total: total });
     });
     app.get('/get-orders', urlencodedParser, function (req, res) {
-        firebase.firestore.collection('orders').orderBy('submissionTime', 'desc').get().then(snapshot=>{
-            let data=[];
-            snapshot.docs.forEach(doc=>{
+        firebase.firestore.collection('orders').orderBy('submissionTime', 'desc').get().then(snapshot => {
+            let data = [];
+            snapshot.docs.forEach(doc => {
                 data.push(doc.data());
-               
+
             })
-            res.send(data); 
-            
+            res.send(data);
+
         })
     });
-    
-    
+
+app.get('/get-comments', (req, res)=>{
+    firebase.firestore.collection('comments').get().then(snapshot=>{
+        let comments = [];
+        snapshot.docs.forEach(doc=>{
+                comments.push(doc.data());
+            })
+            res.send( comments);
+        })
+});
+
+
     //RUN GET PAGE FUNCTION    
     getPage('cakes'); //Get the cakes page
-    
+
     getPage('bread'); //Get the bread page
-    
+
     getPage('croissants'); //Get the Croissants page  
-    
+
     getPage('pizza'); //Get the Pizza Page
-    
-    
-    
-   
-    
-    
-    
+
+
+
+
+
+
+
 }
 
 

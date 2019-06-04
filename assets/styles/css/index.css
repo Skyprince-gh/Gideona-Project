@@ -100,3 +100,110 @@ body.row {
   border-radius: 50px;
   margin: 0 auto;
   display: inline-block; }
+
+.hide {
+  display: none; }
+
+.show {
+  display: block; }
+
+#commentBtn {
+  background: #2f77ec;
+  border: none;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.5) 2px 2px 6px;
+  box-shadow: rgba(0, 0, 0, 0.5) 2px 2px 6px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  color: white;
+  outline: none;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s; }
+  #commentBtn:hover {
+    width: 55px;
+    height: 55px;
+    border-radius: 27.5px; }
+
+form#commentForm {
+  background: purple;
+  width: 350px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 20px;
+  border-radius: 20px 20px 0px 20px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.5) 5px 5px 15px;
+  box-shadow: rgba(0, 0, 0, 0.5) 5px 5px 15px;
+  position: fixed;
+  right: 70px;
+  bottom: 80px; }
+  form#commentForm div#thank-you {
+    display: block;
+    background: greenyellow;
+    height: 75px;
+    width: 90%;
+    margin: 10 auto;
+    border-radius: 15px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 5px;
+    color: purple; }
+  form#commentForm h1 {
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    margin: 20px auto;
+    margin-top: 0px; }
+  form#commentForm input {
+    display: block;
+    border: none;
+    width: 90%;
+    margin: 20px auto;
+    min-height: 30px;
+    border-radius: 15px;
+    padding-left: 20px;
+    outline: none;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background: white; }
+  form#commentForm button {
+    position: relative;
+    left: 80%;
+    border: none;
+    outline: none;
+    color: white;
+    border-radius: 25px;
+    width: 50px;
+    height: 50px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.5) 2px 2px 6px;
+    box-shadow: rgba(0, 0, 0, 0.5) 2px 2px 6px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background: greenyellow;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s; }
+    form#commentForm button:hover {
+      width: 55px;
+      height: 55px;
+      border-radius: 27.5px;
+      position: relative; }
+  form#commentForm #review {
+    height: 70px;
+    border-radius: 15px;
+    resize: none;
+    outline: none;
+    padding: 20px;
+    width: 90%;
+    margin: 0 auto;
+    display: block;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background: white; }
+    form#commentForm #review::-webkit-scrollbar {
+      display: none; }
