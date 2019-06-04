@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Signin</title>
+    <% include partials/importHeader.ejs %>
+</head>
+
+<body class="sign">
+        <div class="container">
+
+                <div class="form-wrapper row">
+    
+                    <form class="animated white-text fadeIn z-depth-2 purple col s9 m4 push-l3 l6" method="POST" action="/signin">
+                        <h3>Signin</h3>
+                        <label for="email">Email</label>
+                        <input name="email" type="text" required>
+                        <label for="password">Password</label>
+                        <input name="password" type="password" required>
+    
+                        <button class="btn waves-effect waves-dark" type="submit">Login</button>
+                    </form>
+
+                    <a id="redirect" class="" href="/signup">Click here to signup for an account</a>
+                </div>
+            </div>
+
+</body>
+
+</html>

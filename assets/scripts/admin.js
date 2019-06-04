@@ -49,6 +49,12 @@ window.onload = function (e) {
 
 
     let displayOrders = function (data) {
+        area.innerHTML = `<div class="orders">
+        <h2>Orders</h2>
+        <ul class="collapsible popout" data-collapsible="accordion">
+          
+        </ul>
+      </div>`
         let orderList = document.querySelector('ul.collapsible');
         let customerInfo = JSON.parse(data[0].customerInfo);
         let basket = JSON.parse(data[0].basket);
@@ -61,6 +67,8 @@ window.onload = function (e) {
             let basket = JSON.parse(user.basket);
             let items = '';
             let total = user.total
+
+
 
             basket.forEach(item => {
                 items += `<li class="collection-item" >${item.name}</li>`;
@@ -105,32 +113,28 @@ window.onload = function (e) {
     let displayComments = function (data) {
         
         area.innerHTML = `<h2>Comments</h2>
-        <ul class="collapsible w"></ul> `;
+        <ul class="collapsible popout" data-collapsible="accordion"> </ul> `;
 
-        setTimeout(function(){
+      
          comments = area.querySelector('.collapsible')
 
          data.forEach(comment=>{
-           comments.innerHTML += `<li>
-           <div class="collapsible-header">
-           <i class="material-icons">comment</i>
-           <strong>${comment.userName}</strong>
-           </div>
-
+           comments.innerHTML += ` <li>
+           <div class="collapsible-header"><i class="material-icons">comment</i><strong>${comment.userName}</strong></div>
            <div class="collapsible-body">
-           <span>${comment.review}</span> 
+           <p><strong>Email</strong>: ${comment.email}</p><span>${comment.review}</span>
            </div>
          </li>`
         })
-        });
+      
 
-       
+       //MATERIALIZE FEATURES  
+    $('.collapsible').collapsible();
         console.log(data);
     }
 
-
-    //MATERIALIZE FEATURES  
     $('.collapsible').collapsible();
+    
 
 }
 

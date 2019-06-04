@@ -1,4 +1,30 @@
 window.onload = function () {
+   
+   //MATERIALIZE FEATURES  
+   $('.parallax').parallax();
+   $('.dropdown-trigger').dropdown();
+   
+   function checkIfUserIsSignedIn(){
+      $.ajax({
+         type:'GET',
+         url: '/checkAuthStatus',
+         success: function(data){
+            if(data){
+               //replace signin button with a dropdown list
+               console.log('signed in')
+              let signBtn = document.querySelector('#signBtn');
+              signBtn.innerHTML = ` <a class='dropdown-trigger btn btn-floating' href='' data-target='dropdown1'><i class="material-icons right" href="">account_circle</i></a>`
+               //optional: if user is signed in, the name of the items order list will be replaced with user name;
+               //also comments will also be replaced
+               $('.dropdown-trigger').dropdown();
+            }
+         }
+      })
+   }
+   //CHECK AUTHENTICATION STATUS
+   checkIfUserIsSignedIn();
+//////////////////////////////////////////////////////////////////////
+
    console.log("window loaded")
    let body = document.querySelector('body');
 
@@ -186,6 +212,7 @@ window.onload = function () {
 
    //MATERIALIZE FEATURES  
    $('.parallax').parallax();
+   $('.dropdown-trigger').dropdown();
 
 
 

@@ -2,15 +2,19 @@
     <a href="/index" class="brand-logo center logo">Gido</a>
    
   <ul>
+    
     <li><a href="/"><i class="material-icons left">home</i></a></li>
     <li><a href="/about"><i class="material-icons left">help</i></a></li>    
   </ul>
 
   <ul class="right">
+      <li id="signBtn"><a href="/signin" class="btn btn-floating" ><i class="material-icons right" href="">account_circle</i></a></li>
       <li><a href="" class="btn btn-floating" ><i class=" modal-trigger material-icons right" href="#items-menu">shopping_cart</i></a></li>
       <span class="new badge green" data-badge-caption=""><%=basket.length %></span>
   </ul>
 
   
-  
+  <ul id='dropdown1' class='dropdown-content'>
+      <li><a href="/signout">signout</a></li>
+  </ul>
 </nav>

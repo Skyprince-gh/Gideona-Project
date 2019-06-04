@@ -15,6 +15,23 @@ const controller = function (app) {
 
     /*POST REQUESTS */
 
+    app.post('/signup', urlencodedParser,function(req,res){
+        firebase.auth.createUserWithEmailAndPassword(req.body.email, req.body.password).then(cred=>{
+            if(cred){
+             console.log('user logged in')
+             res.redirect('/index')
+            }
+        })
+    })
+    app.post('/signin', urlencodedParser,function(req,res){
+        firebase.auth.signInWithEmailAndPassword(req.body.email, req.body.password).then(cred=>{
+            if(cred){
+             console.log('user logged in')
+             res.redirect('/index')
+            }
+        })
+    })
+
     app.post('/comment', urlencodedParser, function (req, res) {
         firebase.firestore.collection('comments').add({
             review:req.body.review,
@@ -162,6 +179,27 @@ const controller = function (app) {
         console.log('admin login page rendered');
 
     });
+    app.get('/signin', function(req, res){
+        res.render('signin')
+    })
+    app.get('/signup', function(req, res){
+        res.render('signup')
+    })
+    app.get('/checkAuthStatus', function(req, res){
+        firebase.auth.onAuthStateChanged(function(auth){
+            if(auth){
+                res.send(auth)
+            }
+            else{
+                console.log('not signed in')
+            }
+        })
+    })
+    app.get('/signout', function(req,res){
+        firebase.auth.signOut().then(mssg=>{
+            res.redirect('/index')
+        })
+    })
     app.get('/admin-panel', urlencodedParser, (req, res) => {
         //check if the user is signed in
         console.clear();

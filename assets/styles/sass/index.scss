@@ -3,6 +3,11 @@
 /* Case Study - Gido Catering Services */
 /* version - 1.0 */
 
+body.sign{
+    background: url("../../images/croissants/flaky-butter.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 body{
     nav{
         .badge{
@@ -272,4 +277,11 @@ form#commentForm{
         }
         
     }
+}
+
+#redirect{
+    position: fixed;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%)
 }
